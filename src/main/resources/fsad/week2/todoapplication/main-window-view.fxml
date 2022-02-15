@@ -3,11 +3,30 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
 <BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="fsad.week2.todoapplication.Controller">
+
     <left>
-        <ListView fx:id="toDoListView" prefWidth="200" onMouseClicked="#handleClickListView"/>
+        <ListView fx:id="toDoListView" prefWidth="200"/>
     </left>
     <center>
-        <TextArea fx:id="itemDetailsTextArea" prefWidth="300"/>
+        <VBox style="-fx-background-color: white">
+            <TextArea fx:id="itemDetailsTextArea" prefWidth="300" VBox.vgrow="ALWAYS"/>
+            <HBox>
+                <Label text="Due: " style="-fx-background-color: white">
+                    <font>
+                        <Font name="Times New Roman bold" size="20"/>
+                    </font>
+                </Label>
+                <Label fx:id="deadlineLabel">
+                    <font>
+                        <Font name="Times New Roman bold" size="20"/>
+                    </font>
+                </Label>
+            </HBox>
+        </VBox>
     </center>
 </BorderPane>

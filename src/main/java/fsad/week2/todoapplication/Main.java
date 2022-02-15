@@ -1,5 +1,6 @@
 package fsad.week2.todoapplication;
 
+import fsad.week2.todoapplication.dataModel.ToDoData;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -19,5 +20,23 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch();
+    }
+
+    @Override
+    public void init() throws IOException {
+        try { //Load data in
+            ToDoData.getInstance().loadToDoItems();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public void stop() throws IOException {
+        try {
+            ToDoData.getInstance().storeToDoItems();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
