@@ -1,8 +1,7 @@
 package fsad.week2.todoapplication;
 
-import fsad.week2.todoapplication.dataModel.toDoItem;
+import fsad.week2.todoapplication.dataModel.ToDoItem;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
@@ -12,20 +11,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
-    List<toDoItem> toDoItems = new ArrayList<>();
+    private List<ToDoItem> toDoItems = new ArrayList<>();
 
     @FXML
-    ListView<String> toDoListView;
+    private ListView<ToDoItem> toDoListView;
     @FXML
-    TextArea itemDetailsTextArea;
+    private TextArea itemDetailsTextArea;
 
     @FXML
     public void initialize() {
-        toDoItem item1 = new toDoItem("Tidy up", "Clean room, make bed, fold clothes", LocalDate.of(2022, 2, 28));
-        toDoItem item2 = new toDoItem("Get car MOTd", "Get your car MOTd or get towed", LocalDate.of(2022, 2, 28));
-        toDoItem item3 = new toDoItem("Uni Work", "FSD, TOC, AI assignment work", LocalDate.of(2022, 2, 28));
-        toDoItem item4 = new toDoItem("Plan birthday party", "Send out invites and book venue", LocalDate.of(2022, 2, 28));
-        toDoItem item5 = new toDoItem("Grocery Shopping", "Weekly shopping at Tesco", LocalDate.of(2022, 2, 28));
+        ToDoItem item1 = new ToDoItem("Tidy up", "Clean room, make bed, fold clothes", LocalDate.of(2022, 2, 28));
+        ToDoItem item2 = new ToDoItem("Get car MOTd", "Get your car MOTd or get towed", LocalDate.of(2022, 2, 28));
+        ToDoItem item3 = new ToDoItem("Uni Work", "FSD, TOC, AI assignment work", LocalDate.of(2022, 2, 28));
+        ToDoItem item4 = new ToDoItem("Plan birthday party", "Send out invites and book venue", LocalDate.of(2022, 2, 28));
+        ToDoItem item5 = new ToDoItem("Grocery Shopping", "Weekly shopping at Tesco", LocalDate.of(2022, 2, 28));
 
         toDoItems.add(item1);
         toDoItems.add(item2);
@@ -33,14 +32,17 @@ public class Controller {
         toDoItems.add(item4);
         toDoItems.add(item5);
 
-        //Check this?
-        toDoListView.getItems();
-
-        SelectionMode selectionMode = SelectionMode.SINGLE;
+        toDoListView.getItems().setAll(toDoItems);
+        toDoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
 
     @FXML
     public void handleClickListView() {
-        StringBuilder sb;
+        ToDoItem item = toDoListView.getSelectionModel().getSelectedItem();
+        StringBuilder sb = new StringBuilder(item.getDetails());
+        sb.append("\n\n\n\n");
+        sb.append("Due: ");
+        sb.append(item.getDeadline().toString());
+        itemDetailsTextArea.setText(sb.toString());
     }
 }

@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextArea?>
 <BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="fsad.week2.todoapplication.Controller">
     <left>
-        <ListView fx:id="toDoListView" prefWidth="200" onKeyReleased="#handleClickListView"/>
+        <ListView fx:id="toDoListView" prefWidth="200" onMouseClicked="#handleClickListView"/>
     </left>
     <center>
         <TextArea fx:id="itemDetailsTextArea" prefWidth="300"/>
