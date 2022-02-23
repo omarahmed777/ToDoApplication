@@ -11,21 +11,48 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="fsad.week2.todoapplication.Controller">
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.control.ToggleButton?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="fsad.week2.todoapplication.Controller"
+            fx:id="mainBorderPane">
     <top>
-        <MenuBar>
-            <Menu text="File">
-                <items>
-                    <MenuItem text="New..."/>
-                    <SeparatorMenuItem/>
-                    <MenuItem text="Exit..."/>
-                </items>
-            </Menu>
-        </MenuBar>
+        <VBox>
+            <MenuBar>
+                <Menu text="File">
+                    <items>
+                        <MenuItem text="New..." onAction="#showItemDialog"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="Exit..." onAction="#handleExit"/>
+                    </items>
+                </Menu>
+            </MenuBar>
+            <ToolBar>
+                <HBox>
+                    <Button text="New..." onAction="#showItemDialog">
+                        <tooltip>
+                            <Tooltip text="Add a new ToDo item"/>
+                        </tooltip>
+                    </Button>
+                    <ToggleButton fx:id="filterToggleButton" text="List today's ToDo items"
+                                  onAction="#handleToggle">
+                        <tooltip>
+                            <Tooltip text="click once: today's item, click again: all items"/>
+                        </tooltip>
+                    </ToggleButton>
+                </HBox>
+            </ToolBar>
+        </VBox>
+
     </top>
+
     <left>
-        <ListView fx:id="toDoListView" prefWidth="200"/>
+        <ListView fx:id="toDoListView" prefWidth="200" onKeyPressed="#handleKeyPressed"/>
     </left>
+
     <center>
         <VBox style="-fx-background-color: white">
             <TextArea fx:id="itemDetailsTextArea" prefWidth="300" VBox.vgrow="ALWAYS"/>
