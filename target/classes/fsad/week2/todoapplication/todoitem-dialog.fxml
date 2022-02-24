@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<DialogPane fx:controller="fsad.week2.todoapplication.Controller"
+<DialogPane fx:controller="fsad.week2.todoapplication.DialogController"
             xmlns:fx="http://javafx.com/fxml">
     <headerText>
         Please enter a new item
