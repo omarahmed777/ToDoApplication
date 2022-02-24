@@ -17,9 +17,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.util.Callback;
-
 import java.io.IOException;
-import java.security.KeyException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
@@ -28,7 +26,7 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 public class Controller {
-    //private List<ToDoItem> toDoItems;
+    private List<ToDoItem> toDoItems;
     private Predicate<ToDoItem> allItems;
     private Predicate<ToDoItem> todayItem;
 
