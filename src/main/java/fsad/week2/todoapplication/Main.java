@@ -23,18 +23,18 @@ public class Main extends Application {
     }
 
     @Override
-    public void init() throws IOException {
-        try { //Load data in
-            ToDoData.getInstance().loadToDoItems();
+    public void stop() throws IOException {
+        try {
+            ToDoData.getInstance().storeToDoItems();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
 
     @Override
-    public void stop() throws IOException {
-        try {
-            ToDoData.getInstance().storeToDoItems();
+    public void init() throws IOException {
+        try { //Load data in
+            ToDoData.getInstance().loadToDoItems();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }

@@ -15,6 +15,7 @@ import java.util.Iterator;
 public class ToDoData {
     private static ToDoData instance = new ToDoData();
     private static String filename = "ToDoListItems.txt";
+
     private ObservableList<ToDoItem> toDoItems;
     private DateTimeFormatter formatter;
 
@@ -24,9 +25,9 @@ public class ToDoData {
         formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     }
 
-    public void addToDoItem(ToDoItem item) { toDoItems.add(item); }
-
     public ObservableList<ToDoItem> getToDoItems() { return toDoItems; }
+
+    public void addToDoItem(ToDoItem item) { toDoItems.add(item); }
 
     public void loadToDoItems() throws IOException {
         toDoItems = FXCollections.observableArrayList();
