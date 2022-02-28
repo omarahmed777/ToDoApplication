@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <DialogPane fx:controller="fsad.week2.todoapplication.DialogController"
             xmlns:fx="http://javafx.com/fxml">
     <headerText>
-        Please enter a new item
+        Please enter a new item to add to the ToDo list
     </headerText>
     <content>
         <GridPane vgap="10" hgap="10">
